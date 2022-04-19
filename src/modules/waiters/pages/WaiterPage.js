@@ -9,7 +9,7 @@ export default function WaiterPage() {
   console.log(waiter);
   return (
     <div>
-        <WaiterHeader waiter={waiter} />
+      <WaiterHeader waiter={waiter} />
     </div>
   );
 }

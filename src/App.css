@@ -1,3 +1,33 @@
+.bckGroundName {
+  background-color: #b39ddb;
+}
+
 .textDecorNone {
-    text-decoration: none;
+  text-decoration: none;
+}
+
+.ContainerBackGround {
+  background-color: #eceff1;
+}
+
+.headerNav {
+  margin-right: 20px;
+  color: #212831;
+  text-decoration: none;
+}
+.active {
+  background-color: rgb(243, 190, 55);
+}
+
+.headerNav:hover {
+  background-color: antiquewhite;
+  color: black;
+}
+
+.table {
+  border: solid black;
+}
+
+.table:hover {
+  background-color: aquamarine;
 }

@@ -1,30 +1,30 @@
-import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import WaiterFormSchema from "./validation/WaiteFormSchema";
+import React from "react";
+import FormMenuSchema from "./validation/FormMenuSchema";
 
-export default function WaiterForm({ addWaiter, setOpen, open }) {
+export default function FormMenu({addMenu, setOpen, open}) {
   const initValue = {
     name: "",
+    price: "",
   };
 
   function onMySubmit(values, handleReset) {
     handleReset.resetForm();
     console.log(values);
-    addWaiter(values.name);
+    addMenu(values.name, values.price);
     setOpen(!open)
   }
-
   return (
     <div>
       <Formik
         initialValues={initValue}
         onSubmit={onMySubmit}
-        validationSchema={WaiterFormSchema}
+        validationSchema={FormMenuSchema}
       >
         <Form>
           <div>
             <label>
-              Name <br />
+              Dish name <br />
               <Field name="name" />
               <ErrorMessage
                 name="name"
@@ -33,6 +33,18 @@ export default function WaiterForm({ addWaiter, setOpen, open }) {
               />
             </label>
           </div>
+          <div>
+            <label>
+              Price <br />
+              <Field name="price" />
+              <ErrorMessage
+                name="price"
+                component="div"
+                className="text-danger"
+              />
+            </label>
+          </div>
+          <h6>Photo generate auto</h6>
           <button type="submit" className="btn btn-primary">
             submit
           </button>

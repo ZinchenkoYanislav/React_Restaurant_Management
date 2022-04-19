@@ -1,16 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function ButtonNavBack() {
+export default function ButtonStartPage() {
   const navigate = useNavigate();
   return (
     <>
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-danger"
       >
-        BACK
+        QUIT
       </button>
     </>
   );

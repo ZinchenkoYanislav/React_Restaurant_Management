@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import WaitersModule from "./modules/waiters/WaitersModule";
 
 export default function App() {
-  return (<Container>
+  return (<Container fluid className="ContainerBackGround">
     <Router>
       <Routes>
         <Route path="/*" element={<WaitersModule />} />

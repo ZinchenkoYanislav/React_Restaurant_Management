@@ -9,8 +9,12 @@ export function fetchWaiter(id) {
   return api.get("waiters?id=" + id);
 }
 
-export function addWaiter(name) {
-  return api.post("waiters" , {
-    name
-  })
+export function postWaiter(name) {
+  return api.post("waiters", {
+    name,
+  });
+}
+
+export function apiDelWaiter(id) {
+  return api.delete("waiters/" + id)
 }

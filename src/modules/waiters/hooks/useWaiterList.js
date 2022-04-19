@@ -1,10 +1,31 @@
-import { useEffect, useState } from "react";
-import { fetchWaiters } from "../services/waitersService";
+import { useEffect } from "react";
+import { useState } from "react";
+import { apiDelWaiter, fetchWaiters, postWaiter } from "../services/waitersService";
 
 export default function useWaiterList() {
-  const [list, setList] = useState([]);
+  const [waiterList, setWaiterList] = useState([]);
+
   useEffect(() => {
-    fetchWaiters().then(({ data }) => setList(data));
+    fetchWaiters().then(({ data }) => setWaiterList(data));
   }, []);
-  return list;
+
+  function addWaiter(name) {
+    postWaiter(name).then(({ data }) => {
+      const newWaiters = [...waiterList, data];
+      setWaiterList(newWaiters);
+    });
+  }
+
+  function deleteWaiter(id) {
+    apiDelWaiter(id).then(({data}) => {
+      console.log(data)
+      const newWaiters = waiterList.filter((item) => item.id !== id)
+      setWaiterList(newWaiters)
+    })
+  }
+  return {
+    waiterList,
+    addWaiter,
+    deleteWaiter
+  };
 }

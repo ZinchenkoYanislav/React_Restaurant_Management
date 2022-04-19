@@ -1,20 +1,20 @@
 import React from "react";
 import { Badge, Col, Row } from "react-bootstrap";
 import { NavLink, useLocation } from "react-router-dom";
-import ButtonNavBack from "../../../common/components/ButtonNavBack";
-import ButtonStartPage from "../../../common/components/ButtonStartPage";
+import ButtonNavBack from "../../common/components/ButtonNavBack";
+import ButtonStartPage from "../../common/components/ButtonStartPage";
 
-export default function WaiterHeader({ waiter }) {
+export default function TableHeader({ waiter }) {
   const { pathname, state } = useLocation();
-  const prevPathname = state;
-  console.log(pathname, prevPathname);
+  const pathnameWaiter = state;
+  console.log(pathname, pathnameWaiter);
   return (
     <>
       {" "}
       {/* возвращает [{0: ...}] */}
       {waiter.map((item) => {
         return (
-          <h2 className="headerBackGround" key={item.id}>
+          <h2 key={item.id}>
             <Row>
               <Col sm={4}>
                 Welcome <Badge bg="primary"> {item.name}</Badge>
@@ -23,22 +23,22 @@ export default function WaiterHeader({ waiter }) {
                 <nav>
                   <NavLink
                     className="headerNav"
-                    state={pathname}
-                    to={`${pathname}/myTable/1`}
+                    state={pathnameWaiter}
+                    to={`${pathnameWaiter}/myTable/1`}
                   >
                     My tables
                   </NavLink>
                   <NavLink
                     className="headerNav"
-                    state={pathname}
-                    to={`${pathname}/AllTable`}
+                    state={pathnameWaiter}
+                    to={`${pathname}`}
                   >
                     All Tables
                   </NavLink>
                   <NavLink
                     className="headerNav"
-                    state={pathname}
-                    to={`${pathname}/Menu`}
+                    state={pathnameWaiter}
+                    to={`${pathnameWaiter}/menu`}
                   >
                     Menu
                   </NavLink>

@@ -5,12 +5,12 @@ import WaiterList from "../components/WaiterList";
 import useWaiterList from "../hooks/useWaiterList";
 
 export default function WaiterListPage() {
-  const waiterList = useWaiterList();
-  console.log(waiterList)
+  const { waiterList, addWaiter, deleteWaiter } = useWaiterList();
+  console.log(waiterList);
   const [open, setOpen] = useState(false);
   return (
     <>
-      <WaiterList waiterList={waiterList} />
+      <WaiterList waiterList={waiterList} deleteWaiter={deleteWaiter} />
       <>
         <Button
           onClick={() => setOpen(!open)}
@@ -21,7 +21,7 @@ export default function WaiterListPage() {
         </Button>
         <Collapse in={open}>
           <div id="formWaiter">
-            <WaiterForm waiterList={waiterList} />
+            <WaiterForm addWaiter={addWaiter} setOpen={setOpen} open={open} />
           </div>
         </Collapse>
       </>

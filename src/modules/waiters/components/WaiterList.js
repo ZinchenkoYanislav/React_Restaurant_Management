@@ -1,23 +1,34 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Button, Col, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function WaiterList({ waiterList }) {
+export default function WaiterList({ waiterList, deleteWaiter }) {
+  function onDelete(e, id) {
+    e.preventDefault();
+    deleteWaiter(id);
+  }
   return (
     <>
-      <ListGroup>
-        {waiterList.map((item) => {
-          return (
-            <Link className="textDecorNone" key={item.id} to={`waiter/${item.id}`}>
-              <ListGroup.Item action variant="secondary">
-                {item.name}
-              </ListGroup.Item>
-            </Link>
-          );
-        })}
-      </ListGroup>
-
+      {waiterList.map((item) => {
+        return (
+          <ListGroup key={item.id}>
+            <Row>
+              <Col xs={10}>
+                <Link className="textDecorNone" to={`waiter/${item.id}`}>
+                  <ListGroup.Item action variant="secondary">
+                    <Col> {item.name} </Col>
+                  </ListGroup.Item>
+                </Link>
+              </Col>
+              <Col xs={2}>
+                <Button onClick={(e) => onDelete(e, item.id)} variant="danger">
+                  Delete
+                </Button>
+              </Col>
+            </Row>
+          </ListGroup>
+        );
+      })}
     </>
   );
 }
