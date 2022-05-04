@@ -25,6 +25,7 @@ export default function WaiterListPage() {
           </div>
         </Collapse>
       </>
+  
     </>
   );
 }

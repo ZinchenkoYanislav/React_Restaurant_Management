@@ -16,39 +16,13 @@ export default function WaiterHeader({ waiter }) {
         return (
           <h2 className="headerBackGround" key={item.id}>
             <Row>
-              <Col sm={4}>
+              <Col sm={5}>
                 Welcome <Badge bg="primary"> {item.name}</Badge>
               </Col>
-              <Col sm={5}>
-                <nav>
-                  <NavLink
-                    className="headerNav"
-                    state={pathname}
-                    to={`${pathname}/myTable/1`}
-                  >
-                    My tables
-                  </NavLink>
-                  <NavLink
-                    className="headerNav"
-                    state={pathname}
-                    to={`${pathname}/AllTable`}
-                  >
-                    All Tables
-                  </NavLink>
-                  <NavLink
-                    className="headerNav"
-                    state={pathname}
-                    to={`${pathname}/Menu`}
-                  >
-                    Menu
-                  </NavLink>
-                </nav>
-              </Col>
-              <Col sm={2}>
-                <ButtonNavBack />
-              </Col>
+              MY TABLES
+              <Col sm={4}></Col>
               <Col>
-                <ButtonStartPage />
+                <ButtonNavBack />
               </Col>
             </Row>
           </h2>

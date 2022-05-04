@@ -11,7 +11,7 @@ export default function AllTables() {
   const {tableList} = useTable()
   return (
     <div>
-      <AllTableHeader waiter={waiter} />
+      {/* <AllTableHeader waiter={waiter} /> */}
       <AllTableList tableList={tableList} />
     </div>
   );

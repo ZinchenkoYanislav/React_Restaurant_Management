@@ -18,3 +18,9 @@ export function postWaiter(name) {
 export function apiDelWaiter(id) {
   return api.delete("waiters/" + id)
 }
+
+export function apiUpdateWaiter(id, name){
+  return api.put("waiters/" + id, {
+    name,
+  })
+}

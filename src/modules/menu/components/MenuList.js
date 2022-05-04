@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, CardGroup, Col, Row } from "react-bootstrap";
 
-export default function MenuList({menuList, deleteItemMenu}) {
+export default function MenuList({menuList, deleteItemMenu, updateItemMenu}) {
   console.log(menuList);
   return (
     <div>
@@ -17,7 +17,7 @@ export default function MenuList({menuList, deleteItemMenu}) {
                     <Card.Title>Price - {item.price}$</Card.Title>
                     <Row>
                       <Col>
-                        <Button variant="primary">Update</Button>
+                        <Button onClick={() => updateItemMenu(item.id)} variant="primary">Update</Button>
                       </Col>
                       <Col>
                         <Button onClick={() => deleteItemMenu(item.id)} variant="danger">Delete</Button>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { apiDelItemMenu, fetchMenu, postMenu } from "../services/menuService";
+import { apiDelItemMenu, fetchMenu, apiPostMenu, apiUpdateItemMenu } from "../services/menuService";
 
 
 export default function useMenu() {
@@ -10,7 +10,7 @@ export default function useMenu() {
     }, []);
 
     function addMenu (name, price){
-        postMenu(name, price).then(({data}) => {
+        apiPostMenu(name, price).then(({data}) => {
             const newMenu = [...menuList, data];
             setMenuList(newMenu)
         })
@@ -23,10 +23,16 @@ export default function useMenu() {
         })
     }
     
+    function updateItemMenu(id) {
+        apiUpdateItemMenu(id).then(({data}) => {
+            console.log(data)
+        })
+    }
 
     return {
         menuList,
         addMenu,
-        deleteItemMenu
+        deleteItemMenu,
+        updateItemMenu
     }
 }
